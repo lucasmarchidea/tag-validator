@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tag Validator Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <button id="btnClear" class="header-icon-btn" title="Limpar todos os campos">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+          <path d="M3 3v5h5"/>
+        </svg>
+      </button>
+
+      <h1>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Tag Validator
+      </h1>
+      <p class="subtitle">Validação inteligente e rápida de tags.</p>
+    </header>
+
+    <div class="section-group">
+      <label class="section-label">1. Filtros de Validação</label>
+      <div class="filters-grid">
+        <div class="input-wrapper">
+          <label for="country">Country</label>
+          <input id="country" placeholder="ex: us">
+        </div>
+        <div class="input-wrapper">
+          <label for="vertical">Vertical</label>
+          <input id="vertical" placeholder="ex: cc">
+        </div>
+        <div class="input-wrapper">
+          <label for="pagetype">PageType</label>
+          <input id="pagetype" placeholder="ex: rec">
+        </div>
+      </div>
+    </div>
+
+    <div class="section-group">
+      <label class="section-label" for="urls">2. Lista de URLs</label>
+      <textarea id="urls" placeholder="Cole as URLs aqui..."></textarea>
+    </div>
+
+    <div class="actions">
+      <button class="primary" id="validateBtn">Validar Tags</button>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <span id="progressText">0%</span>
+    </div>
+
+    <div class="counter" id="counter"></div>
+    
+    <div class="results" id="results"></div>
+
+    <div class="export-section">
+      <button class="secondary-outline" id="toggleExportBtn">Baixar Relatório ▾</button>
+
+      <div id="exportMenu" class="export-menu" style="display: none;">
+        <button class="mini-btn" id="btnTxt">📄 .TXT</button>
+        <button class="mini-btn" id="btnCsv">📊 .CSV (Excel)</button>
+      </div>
+    </div>
+
+    <footer class="app-footer">
+      <div class="credits">
+        Made by <a href="#" id="authorLink">Lucas Tiago Dea</a>
+      </div>
+      <a href="#" id="btnOpenFeedback" class="feedback-link">💬 Feedback</a>
+    </footer>
+
+  </div> 
+
+  <div id="feedbackModal" class="modal">
+    <div class="modal-content">
+      <h3>Enviar Feedback</h3>
+      <p>Encontrou um bug ou tem uma sugestão?</p>
+      <input type="text" id="fbName" placeholder="Seu Nome (Obrigatório)">
+      <input type="email" id="fbEmail" placeholder="Seu E-mail (Obrigatório)">
+      <textarea id="fbMessage" placeholder="Sua mensagem aqui..."></textarea>
+      
+      <div class="modal-actions">
+        <button id="btnCloseFeedback" class="btn-cancel">Cancelar</button>
+        <button id="btnSendFeedback" class="primary">Enviar E-mail</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastMessage" class="toast">
+    Espero ter ajudado a adiantar seu trabalho. Obrigado por usar! 🚀
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

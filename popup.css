@@ -1,0 +1,250 @@
+:root {
+  /* === Cores (Tema Dark) === */
+  --bg-dark: #0f172a;       /* Fundo Principal */
+  --bg-card: #1e293b;       /* Fundo do Cartão */
+  --bg-input: #334155;      /* Fundo dos Campos */
+  --text-primary: #f8fafc;  /* Texto Principal */
+  --text-secondary: #94a3b8;/* Texto Secundário */
+  --accent: #10b981;        /* Cor de Destaque */
+  --accent-hover: #059669;  /* Verde mais escuro para hover */
+  --accent-glow: rgba(16, 185, 129, 0.5); /* Brilho do verde */
+  --error: #ef4444;         /* Cor de Erro */
+  --error-bg: rgba(239, 68, 68, 0.15); /* Fundo do erro */
+  
+  /* === Variáveis de Layout === */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+body {
+  background: var(--bg-dark);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text-primary);
+  padding: 20px;
+  width: 450px;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background: var(--bg-card);
+  padding: 25px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* === Cabeçalho e Botão de Limpar === */
+header { text-align: center; margin-bottom: 25px; position: relative; }
+
+h1 {
+  font-size: 22px; font-weight: 700; margin: 0 0 8px 0;
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; color: var(--text-primary); letter-spacing: -0.5px;
+}
+h1 svg { stroke: var(--accent); filter: drop-shadow(0 0 8px var(--accent-glow)); }
+
+.subtitle { margin: 0; font-size: 13px; color: var(--text-secondary); }
+
+/* Botão de Limpar */
+.header-icon-btn {
+  position: absolute; right: 0; top: 0;
+  background: transparent; border: none; color: var(--text-secondary);
+  cursor: pointer; padding: 5px; border-radius: 50%;
+  transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+}
+.header-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.05); color: #ef4444; transform: rotate(-10deg) scale(1.1);
+}
+
+/* === Campos de Entrada (Inputs) === */
+.section-group { margin-bottom: 20px; }
+
+.section-label {
+  display: block; font-size: 11px; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--accent); font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.filters-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+.input-wrapper label {
+  display: block; font-size: 12px; color: var(--text-secondary);
+  margin-bottom: 6px; font-weight: 500;
+}
+
+input, textarea {
+  background: var(--bg-input);
+  border: 2px solid transparent;
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  padding: 12px;
+  font-size: 13px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+input:focus, textarea:focus {
+  background: #475569;
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+textarea { min-height: 120px; resize: vertical; line-height: 1.5; }
+
+/* === Botões de Ação === */
+.actions { display: flex; flex-direction: column; gap: 12px; margin-top: 25px; }
+
+button {
+  border: none; border-radius: var(--radius-md); 
+  padding: 8px 12px; font-size: 12px;
+  cursor: pointer; font-weight: 600; letter-spacing: 0.3px;
+  transition: all 0.2s; display: flex; align-items: center; justify-content: center;
+  font-family: inherit; line-height: 1.2;
+}
+button:active { transform: scale(0.98); }
+
+.primary {
+  background: var(--accent); color: #022c22;
+  box-shadow: 0 5px 15px -5px var(--accent-glow);
+}
+.primary:hover { background: var(--accent-hover); box-shadow: 0 8px 20px -5px var(--accent-glow); }
+
+.secondary-outline {
+  background: transparent; border: 2px solid var(--bg-input); color: var(--text-secondary);
+}
+.secondary-outline:hover {
+  border-color: var(--text-secondary); color: var(--text-primary); background: rgba(255,255,255,0.05);
+}
+
+/* === Área de Exportação (rodapé) === */
+.export-section {
+  margin-top: 20px; padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex; flex-direction: column; gap: 10px;
+}
+
+.export-menu {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  animation: slideUpFade 0.2s ease-out;
+}
+@keyframes slideUpFade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.mini-btn { padding: 8px; font-size: 11px; background: var(--bg-input); color: var(--text-secondary); }
+.mini-btn:hover { background: #475569; color: #fff; }
+
+/* === Barra de Progresso === */
+.progress-container { margin-top: 25px; display: flex; align-items: center; gap: 12px; }
+.progress {
+  flex-grow: 1; background: rgba(255, 255, 255, 0.05); height: 8px;
+  border-radius: 10px; overflow: hidden;
+}
+.progress-bar {
+  height: 100%; width: 0%; background: linear-gradient(90deg, var(--accent), #34d399);
+  border-radius: 10px; transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+.progress-bar.finished { background: #34d399; box-shadow: 0 0 12px rgba(52, 211, 153, 0.6); }
+#progressText { font-size: 11px; font-weight: 600; color: var(--text-secondary); min-width: 35px; text-align: right;}
+
+/* === Lista de Resultados (Cards) === */
+.results { margin-top: 20px; max-height: 300px; overflow-y: auto; padding-right: 5px; }
+
+/* Barra de rolagem estilizada */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+.result-item {
+  display: flex; gap: 12px; padding: 14px;
+  border-radius: var(--radius-md); margin-bottom: 8px;
+  font-size: 13px; border: 1px solid rgba(255,255,255,0.05);
+  align-items: flex-start; transition: all 0.2s ease;
+  background: rgba(255,255,255,0.02);
+}
+.result-item:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); border-color: rgba(255,255,255,0.1); }
+
+.fade-in { animation: fadeIn 0.3s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Estilos de OK (Verde) e Erro (Vermelho) */
+.result-item.ok { background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.3); }
+.result-item.ok .icon { color: var(--accent); filter: drop-shadow(0 0 5px var(--accent-glow)); }
+.result-item.error { background: var(--error-bg); border-color: rgba(239, 68, 68, 0.3); }
+
+.result-item .icon { font-size: 16px; margin-top: 0px; }
+.result-item .info { display: flex; flex-direction: column; gap: 4px; overflow: hidden; }
+.result-item strong { word-break: break-all; color: var(--text-primary); font-weight: 500;}
+.err-msg { color: #fca5a5; font-weight: 600; font-size: 12px; margin-top: 2px;}
+
+.loading-state { text-align: center; padding: 30px; color: var(--text-secondary); font-style: italic; opacity: 0.7;}
+
+/* === Contador e Badges === */
+.counter { margin-top: 15px; display: flex; justify-content: flex-end; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; }
+.counter-text { color: var(--text-secondary); margin-right: 5px; text-transform: uppercase; letter-spacing: 0.5px;}
+.badge-ok, .badge-err { padding: 5px 10px; border-radius: 20px; font-size: 11px; letter-spacing: 0.5px; }
+.badge-ok { background: rgba(16, 185, 129, 0.15); color: var(--accent); border: 1px solid rgba(16, 185, 129, 0.3); }
+.badge-err { background: rgba(239, 68, 68, 0.15); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.3); }
+
+/* === Rodapé e Autor === */
+.app-footer {
+  margin-top: 20px; text-align: center; font-size: 10px;
+  color: var(--text-secondary); border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 12px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.credits { opacity: 0.4; transition: opacity 0.2s; }
+.app-footer:hover .credits { opacity: 1; }
+.credits span { color: #ef4444; }
+.credits strong { color: var(--text-primary); font-weight: 600; }
+
+.feedback-link {
+  color: var(--text-secondary); text-decoration: none;
+  background: rgba(255,255,255,0.03); padding: 4px 8px;
+  border-radius: 6px; transition: all 0.2s; font-weight: 500;
+}
+.feedback-link:hover {
+  background: rgba(255,255,255,0.1); color: var(--accent); transform: translateY(-1px);
+}
+
+#authorLink {
+  color: var(--text-primary); text-decoration: none;
+  border-bottom: 1px dotted rgba(255,255,255,0.3); transition: all 0.2s; cursor: pointer;
+}
+#authorLink:hover {
+  color: var(--accent); border-bottom: 1px solid var(--accent);
+}
+
+/* === Notificação Toast (Mensagem de Obrigado) === */
+.toast {
+  visibility: hidden; min-width: 250px; background-color: var(--bg-card);
+  color: var(--text-primary); text-align: center; border-radius: 8px; padding: 16px;
+  position: fixed; z-index: 2000; left: 50%; bottom: 30px; transform: translateX(-50%);
+  border: 1px solid var(--accent); box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  font-size: 13px; font-weight: 500; opacity: 0; transition: opacity 0.3s, bottom 0.3s;
+}
+.toast.show { visibility: visible; opacity: 1; bottom: 50px; }
+
+/* === Estilo do Modal (Feedback) === */
+.modal {
+  display: none; position: fixed; z-index: 1000;
+  left: 0; top: 0; width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.7); backdrop-filter: blur(2px);
+  align-items: center; justify-content: center; animation: fadeIn 0.2s ease;
+}
+.modal-content {
+  background: var(--bg-card); padding: 20px; border-radius: var(--radius-lg);
+  width: 85%; border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5); animation: slideUp 0.3s;
+}
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.modal-content h3 { margin: 0 0 5px 0; color: var(--text-primary); font-size: 16px; }
+.modal-content p { margin: 0 0 15px 0; color: var(--text-secondary); font-size: 12px; }
+.modal-content input, .modal-content textarea { margin-bottom: 10px; width: 100%; }
+.modal-actions { display: flex; gap: 10px; margin-top: 5px; justify-content: flex-end; }
+.btn-cancel { background: transparent; color: var(--text-secondary); border: 1px solid rgba(255,255,255,0.1); }
+.btn-cancel:hover { background: rgba(255,255,255,0.05); color: var(--text-primary); }

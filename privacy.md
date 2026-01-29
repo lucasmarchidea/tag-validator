@@ -1,0 +1,1 @@
+Esta extensão armazena dados apenas localmente no navegador do usuário e não coleta, transmite ou compartilha informações pessoais ou de navegação com servidores externos.
